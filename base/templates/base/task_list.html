@@ -1,4 +1,15 @@
-<h1>my to do list</h1>
+{% comment %} <p>{{request.user}}</p> {% endcomment %}
+
+{% if request.user.is_authenticated %}
+    <p>{{request.user}}</p>
+    <a href="{% url 'logout' %}"> logout </a>
+
+{% else %}
+    <a href="{% url 'login' %}"> Login </a>
+    
+{% endif %}
+
+<h1> LISTS:</h1>
 <a href="{% url 'task-create' %}">Add Task</a>
 <table>
 
